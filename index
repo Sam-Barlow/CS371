@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<title>Homework Help</title>
+
+<script type="text/Javascript">
+
+function hwork() {
+ 
+var att = [Math.floor(Math.random() * 6) + 1,  
+Math.floor(Math.random() * 6) + 1, 
+Math.floor(Math.random() * 6) + 1] ;
+var def = [Math.floor(Math.random() * 6) + 1,  
+Math.floor(Math.random() * 6) + 1] ;
+
+
+
+
+for (i = 0; i < att.length; i++) {
+if (att[i] < att[i+1]) {
+var temp = att[i+1];
+att[i+1] = att[i];
+att[i] = temp;
+}
+}
+for (i = 0; i < att.length; i++) {
+if (att[i] < att[i+1]) {
+var temp = att[i+1];
+att[i+1] = att[i];
+att[i] = temp;
+}
+}
+
+for (i = 0; i < att.length; i++) {
+if (def[i] < def[i+1]) {
+var temp = def[i+1];
+def[i+1] = def[i];
+def[i] = temp;
+}
+}
+var loss = "-1";
+var hardloss = "-2";
+if (att[1] > def[1] && att[2] > def[2]) {
+document.getElementById('defside').innerHTML = "-2";
+} else if (att[1] > def[1] && att[2] <= def[2]) {
+document.getElementById('attside').innerHTML = "-1";
+document.getElementById('defside').innerHTML = "-1";
+} else if (att[1] <= def[1] && att[2] > def[2]) {
+document.getElementById('attside').innerHTML = "-1";
+document.getElementById('defside').innerHTML = "-1";
+} else if (att[1] <= def[1] && att[2] <= def[2]) {
+document.getElementById('attside').innerHTML = "-2";
+}
+
+var res = att.concat(def);
+document.getElementById('output').innerHTML = res; 
+document.getElementById('attside').innerHTML = loss;
+
+
+
+
+
+</script>
+</head>
+
+<body>
+Please the problem and your answer:<br>
+
+<input type="text" id="no1">
+<input type="text" id="oper">
+<input type="text" id="no2">  =
+<input type="text" id="answer">
+
+        <br>  
+
+<button type="button" onclick="hwork()">Check</button>  
+
+<div id="attside"></div>
+<div id="defside"></div>
+<div id="output"></div>
+</body>
+</html>
